@@ -104,7 +104,7 @@ module.exports.run = async (bot, message, args) => {
     .addField('CMYK', rgbtocmyk(hex), true)
     .addField('HSV', rgbtohsv(r, g, b), true)
     .setColor(hex)
-    .setThumbnail(`https://imgplaceholder.com/80x80/${00ff54}/32353e/fa-shield`);
+    .setThumbnail(`https://dummyimage.com/80x80/${hex}/32353E.png%26text%3DM`);
     message.channel.send(emb);
 }
 module.exports.help = {

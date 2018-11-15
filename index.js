@@ -27,7 +27,7 @@ bot.login(process.env.TOKEN);
 
 bot.on('message', async message => {
     if(message.author.bot) return;
-    let prefix = 'pr!';
+    let prefix = ["pr!", bot.user.id];
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);

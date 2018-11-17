@@ -12,5 +12,5 @@ message.channel.send(emb)
 }
 
 module.exports.help = {
-    name: "a-qrgen"
+    name: "qrgen"
 }

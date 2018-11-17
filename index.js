@@ -3,7 +3,6 @@ const bot = new Discord.Client();
 const fs = require("fs");
 const ms = require("ms");
 const ytdl = require('ytdl-core');
-require('http').createServer().listen(3000)
 bot.commands = new Discord.Collection();
 fs.readdir("./commands", (err, files) => {
     if(err) console.log(err);

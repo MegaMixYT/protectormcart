@@ -6,6 +6,7 @@ module.exports.run = async (bot, message, args) => {
     let guildss = message.guild.id;
     let interval = setInterval (function () {
         bot.guilds.get(guildss).roles.get(rol).edit({color: "#ff0000"}).catch(err);
+        if(err) return message.channel.send('Указывайте id роли а не пинг!');
         bot.guilds.get(guildss).roles.get(rol).edit({color: "#ff7700"});
         bot.guilds.get(guildss).roles.get(rol).edit({color: "#eeff00"});
         bot.guilds.get(guildss).roles.get(rol).edit({color: "#00ff08"});

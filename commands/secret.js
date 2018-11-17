@@ -2,14 +2,16 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Вы не администратор!");
+    let rol = args[0];
+    let guildss = message.guild.id;
     let interval = setInterval (function () {
-        bot.guilds.get('500623231372492800').roles.get('510094117733400576').edit({color: "#ff0000"});
-        bot.guilds.get('500623231372492800').roles.get('510094117733400576').edit({color: "#ff7700"});
-        bot.guilds.get('500623231372492800').roles.get('510094117733400576').edit({color: "#eeff00"});
-        bot.guilds.get('500623231372492800').roles.get('510094117733400576').edit({color: "#00ff08"});
-        bot.guilds.get('500623231372492800').roles.get('510094117733400576').edit({color: "#00ffe5"});
-        bot.guilds.get('500623231372492800').roles.get('510094117733400576').edit({color: "#1900ff"});
-        bot.guilds.get('500623231372492800').roles.get('510094117733400576').edit({color: "#8c00ff"});
+        bot.guilds.get(guildss).roles.get(rol).edit({color: "#ff0000"});
+        bot.guilds.get(guildss).roles.get(rol).edit({color: "#ff7700"});
+        bot.guilds.get(guildss).roles.get(rol).edit({color: "#eeff00"});
+        bot.guilds.get(guildss).roles.get(rol).edit({color: "#00ff08"});
+        bot.guilds.get(guildss).roles.get(rol).edit({color: "#00ffe5"});
+        bot.guilds.get(guildss).roles.get(rol).edit({color: "#1900ff"});
+        bot.guilds.get(guildss).roles.get(rol).edit({color: "#8c00ff"});
       }, 1 * 1000);
       message.channel.send('Скажите `стоп` чтобы остановить')
       let collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id);

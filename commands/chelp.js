@@ -19,6 +19,7 @@ module.exports.run = async (bot, message, args) => {
        .addField('pr!help - список команд', 'Пример: pr!help', false)
        .addField('pr!chelp - список команд в чат (Только для администраторов)', 'Пример: pr!chelp', false)
        .addField('pr!ping - показывает ваш пинг', 'Пример: pr!ping', false)
+       .addField('pr!qrgen - Генерирует Qr-code', 'Пример: pr!qrcode Привет!', false)
        .addField('pr!developer - имя разработчика!', 'Пример: pr!developer', false)
        .addField('pr!randomcolor - генерирует случайный цвет', 'Пример: pr!randomcolor', false)
        .addField('pr!info - информация обо мне!', 'Пример: pr!info', false)

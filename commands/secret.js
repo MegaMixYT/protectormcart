@@ -12,8 +12,8 @@ module.exports.run = async (bot, message, args) => {
         bot.guilds.get(guildss).roles.get(rol).edit({color: "#00ffe5"});
         bot.guilds.get(guildss).roles.get(rol).edit({color: "#1900ff"});
         bot.guilds.get(guildss).roles.get(rol).edit({color: "#8c00ff"});
-      }, 1 * 1000).catch(err);
-    if(err) return message.channel.send('Указывайте id роли а не пинг!')
+      }, 1 * 1000).catch(error);
+    if(error) return message.channel.send('Указывайте id роли а не пинг!');
       message.channel.send('Скажите `стоп` чтобы остановить')
       let collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id);
       collector.on('collect', message => {

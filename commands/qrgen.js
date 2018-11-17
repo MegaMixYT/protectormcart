@@ -7,8 +7,8 @@ var uri = `https://api.qrserver.com/v1/create-qr-code/?size=900x900&data=${text}
 let emb = new Discord.RichEmbed()
 .setColor('00ff54')
 .setTitle('Ваш QR-code')
-.setImage(imgg);
-message.channel.send(uri)
+.setImage(uri);
+message.channel.send(emb)
 }
 
 module.exports.help = {

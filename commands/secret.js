@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Вы не администратор!");
-    let rol = args[0];
+    let rol = bot.guilds.get(message.guild.id).roles.get(args[0]);
     let guildss = message.guild.id;
     let interval = setInterval (function () {
         bot.guilds.get(guildss).roles.get(rol).edit({color: "#ff0000"});

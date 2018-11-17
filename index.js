@@ -46,7 +46,7 @@ bot.on('ready', () => {
 });
 bot.on('messageUpdate', async (oldMessage, message) => {
   if(message.author.bot) return;
-  let prefix = "pr!":
+  let prefix = "pr!";
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);

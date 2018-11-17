@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 var text = args.join(" ");
-var uri = `https://api.qrserver.com/v1/create-qr-code/?size=900x900&data=${text}`.replace(/ /g,"%20");
+var uri = `https://qr-generator.qrcode.studio/qr/custom?download=false&file=png&data=${text}&size=1000&config=%7B%22body%22%3A%22leaf%22%2C%22eye%22%3A%22frame12%22%2C%22eyeBall%22%3A%22ball15%22%2C%22erf1%22%3A%5B%5D%2C%22erf2%22%3A%5B%5D%2C%22erf3%22%3A%5B%5D%2C%22brf1%22%3A%5B%5D%2C%22brf2%22%3A%5B%5D%2C%22brf3%22%3A%5B%5D%2C%22bodyColor%22%3A%22%23000000%22%2C%22bgColor%22%3A%22%23FFFFFF%22%2C%22eye1Color%22%3A%22%23000000%22%2C%22eye2Color%22%3A%22%23000000%22%2C%22eye3Color%22%3A%22%23000000%22%2C%22eyeBall1Color%22%3A%22%23000000%22%2C%22eyeBall2Color%22%3A%22%23000000%22%2C%22eyeBall3Color%22%3A%22%23000000%22%2C%22gradientColor1%22%3A%22%22%2C%22gradientColor2%22%3A%22%22%2C%22gradientType%22%3A%22linear%22%2C%22gradientOnEyes%22%3A%22true%22%2C%22logo%22%3A%228b91c47672b1a65441aea8c1e993d9864634309c.png%22%2C%22logoMode%22%3A%22default%22%7D`.replace(/ /g,"%20");
 let emb = new Discord.RichEmbed()
 .setColor('00ff54')
 .setTitle('Ваш QR-code')

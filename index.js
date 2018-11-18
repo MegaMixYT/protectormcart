@@ -3,6 +3,10 @@ const bot = new Discord.Client();
 const fs = require("fs");
 const ms = require("ms");
 const ytdl = require('ytdl-core');
+var answers = [
+    "DydleBoat | db!help",
+    `${bot.guilds.size} серверов`
+  ] 
 bot.commands = new Discord.Collection();
 fs.readdir("./commands", (err, files) => {
     if(err) console.log(err);

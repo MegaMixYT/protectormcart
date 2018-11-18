@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
       var randomAnswer = answers[Math.floor(Math.random() * answers.length)];
 let und = new Discord.RichEmbed()
 .setTitle('Информация обо мне:')
-.addField(`Бот находиться на ${bot.guilds.size} серверах`, `---`)
+.addField(`Бот находится на ${bot.guilds.size} серверах`, `---`)
 .addField(`Бот используется ${bot.users.size} участниками со всех серверов`, `---`)
 .setColor(randomAnswer);
 message.channel.send(und)

@@ -26,7 +26,7 @@ bot.login(process.env.TOKEN);
 
 bot.on('message', async message => {
     if(message.author.bot) return;
-    let prefix = "pr!";
+    let prefix = "db!";
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
@@ -34,18 +34,21 @@ bot.on('message', async message => {
     if(commandfile) commandfile.run(bot,message,args);
 });
 bot.on('ready', () => {
+let interval = setInterval (function () {
+    var randomAnswer = answers[Math.floor(Math.random() * answers.length)];
     bot.user.setPresence({
         game:{
-            name:'pr!help',
+            name:`${randomAnswer}`,
             type:"STREAMING",
             url:"https://www.twitch.tv/mcartyr"
         }
     });
+      }, 5 * 1000);
   console.log('Я готов')
 });
 bot.on('messageUpdate', async (oldMessage, message) => {
   if(message.author.bot) return;
-  let prefix = "pr!";
+  let prefix = "db!";
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);

@@ -5,7 +5,7 @@ const ms = require("ms");
 const ytdl = require('ytdl-core');
 var answers = [
     "DydleBoat | db!help",
-    `${bot.guilds.size} серверов`
+    `DydleBoat | bit.ly/protectori`
   ] 
 bot.commands = new Discord.Collection();
 fs.readdir("./commands", (err, files) => {

@@ -35,7 +35,7 @@ module.exports.run = async (bot, message, args) => {
        .addField('pr!fp - за фейспалмить человека!', 'Пример: pr!fp @MCArTyR#1143', false)
        .addField('pr!mute - замутить пользователя! Обязательно во всех каналах запретите роли "muted" отправлять сообщения!', 'Пример: pr!mute @MCArTyR#1143', false)
        .addField('pr!unmute - размутить замученного человека', 'Пример: pr!unmute @MCArTyR#1143', false)
-       .setFooter(`Protector by MCArTyR`, message.author.displayAvatarURL);
+       .setFooter(`DydleBoat by MCArTyR`, message.author.displayAvatarURL);
       message.author.send(hEmbed);
 }
 

@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
       let hEmbed = new Discord.RichEmbed()
       .setThumbnail(message.author.displayAvatarURL)
       .setColor(randomAnswer)
-       .setTitle('Список команд в чат:')
+       .setTitle('Приглашения:')
        .addField('Пригласить бота', 'https://bit.ly/protectori', false)
        .addField('Оффициальный сервер', 'https://discord.gg/bk3stFj', false)
        .setFooter(`Protector by MCArTyR`, message.author.displayAvatarURL);

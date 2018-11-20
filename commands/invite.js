@@ -10,7 +10,9 @@ module.exports.run = async (bot, message, args) => {
         "#1900ff",
         "#8c00ff"
       ] 
-    var invite = message.channel.createInvite();
+  var invite = message.channel.createInvite().then(function(newInvite){
+    let inv = "https://discord.gg/" + newInvite.code;
+    });
       var randomAnswer = answers[Math.floor(Math.random() * answers.length)];
       let hEmbed = new Discord.RichEmbed()
       .setThumbnail(message.author.displayAvatarURL)

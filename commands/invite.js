@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
        .setTitle('Приглашения:')
        .addField('Пригласить бота', 'https://bit.ly/protectori', false)
        .addField('Оффициальный сервер', 'https://discord.gg/bk3stFj', false)
-       .addField('Ваш сервер', `https://discord.gg/${invite}`, false)
+       .addField('Ваш сервер', `https://discord.gg/${inv}`, false)
        .setFooter(`Protector by MCArTyR`, message.author.displayAvatarURL);
       message.channel.send(hEmbed);
 }

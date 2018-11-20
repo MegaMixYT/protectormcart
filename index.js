@@ -34,7 +34,7 @@ bot.on('message', async message => {
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
-if(message.content.startsWith(prefix){
+if(message.content.startsWith(prefix)){
 let commandfile = bot.commands.get(cmd.slice(prefix.length));
 if(commandfile) commandfile.run(bot,message,args);
 }else{ }
@@ -58,7 +58,7 @@ bot.on('messageUpdate', async (oldMessage, message) => {
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
-if(message.content.startsWith(prefix){
+if(message.content.startsWith(prefix)){
 let commandfile = bot.commands.get(cmd.slice(prefix.length));
 if(commandfile) commandfile.run(bot,message,args);
 }else{}

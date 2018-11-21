@@ -4,6 +4,7 @@ const fs = require("fs");
 const ms = require("ms");
 const ytdl = require('ytdl-core');
 const xp = require("./xp.json");
+const prefixs = require("./prefix.json");
 var answers = [
     "DydleBoat | db!help",
     `DydleBoat | bit.ly/protectori`
@@ -31,7 +32,10 @@ bot.login(process.env.TOKEN);
 
 bot.on('message', async message => {
     if(message.author.bot) return;
-    let prefix = "db!";
+  let prefix = prefixs[message.guild.id].prefix;
+  if(!prefix){
+  let prefix = 'db!';
+  };
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
@@ -44,7 +48,10 @@ if(commandfile) commandfile.run(bot,message,args);
 
 //XP SYSTEM OPEN
 bot.on('message', async message => {
-let prefix = 'db!';
+  let prefix = prefixs[message.guild.id].prefix;
+  if(!prefix){
+  let prefix = 'db!';
+  };
 let xpAdd = Math.floor(Math.random() * 7) + 8;
 
 if(!xp[message.author.id]){
@@ -89,7 +96,10 @@ let interval = setInterval (function () {
 });
 bot.on('messageUpdate', async (oldMessage, message) => {
   if(message.author.bot) return;
-  let prefix = "db!";
+  let prefix = prefixs[message.guild.id].prefix;
+  if(!prefix){
+  let prefix = 'db!';
+  };
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);

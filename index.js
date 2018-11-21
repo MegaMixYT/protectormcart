@@ -33,7 +33,7 @@ bot.login(process.env.TOKEN);
 //PREFIX SET
 bot.on('message', async message => {
 if(!prefixs[message.guild.id]){
-    xp[message.guild.id] = {
+    prefixs[message.guild.id] = {
 prefix: 'db!'
     };
 }

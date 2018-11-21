@@ -23,6 +23,7 @@ module.exports.run = async (bot, message, args) => {
        .addField('db!qrgen - Генерирует Qr-code', 'Пример: db!qrcode Привет!', false)
        .addField('db!a-qrgen - Генерирует Qr-code с удалением вашего сообщения', 'Пример: db!a-qrcode Привет!', false)
        .addField('db!developer - имя разработчика!', 'Пример: db!developer', false)
+       .addField('db!level - показывает ваш уровень и опыт', 'Пример: db!level', false)
        .addField('db!randomcolor - генерирует случайный цвет', 'Пример: db!randomcolor', false)
        .addField('db!info - информация обо мне!', 'Пример: db!info', false)
        .addField('db!hi - сказать всем привет!', 'Пример: db!hi', false)

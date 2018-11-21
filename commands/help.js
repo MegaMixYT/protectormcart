@@ -16,6 +16,7 @@ module.exports.run = async (bot, message, args) => {
       .setThumbnail(message.author.displayAvatarURL)
        .setColor(randomAnswer)
        .setTitle('Список команд:')
+       .addField('db!prefix - смена префикса на сервере!', 'Пример: db!prefix db!', false)
        .addField('db!help - список команд', 'Пример: db!help', false)
        .addField('db!chelp - список команд в чат (Только для администраторов)', 'Пример: db!chelp', false)
        .addField('db!invite - ссылка на приглашение бота, и на оффициальный сервер', 'Пример: db!invite', false)

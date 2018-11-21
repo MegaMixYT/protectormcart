@@ -3,6 +3,7 @@ const bot = new Discord.Client();
 const fs = require("fs");
 const ms = require("ms");
 const ytdl = require('ytdl-core');
+const xp = require("./xp.json");
 var answers = [
     "DydleBoat | db!help",
     `DydleBoat | bit.ly/protectori`
@@ -39,6 +40,40 @@ let commandfile = bot.commands.get(cmd.slice(prefix.length));
 if(commandfile) commandfile.run(bot,message,args);
 }else{ }
 });
+
+
+//XP SYSTEM OPEN
+bot.on('message', async message => {
+let prefix = 'db!';
+let xpAdd = Math.floor(Math.random() * 7) + 8;
+
+if(!xp[message.author.id]){
+    xp[message.author.id] = {
+        xp: 0,
+        level: 1
+    };
+}
+
+let curxp = xp[message.author.id].xp;
+let curlvl = xp[message.author.id].level;
+let nxtLvl = xp[message.author.id].level * 700;
+xp[message.author.id].xp = curxp + xpAdd;
+if(nxtLvl <= xp[message.author.id].xp){
+    xp[message.author.id].level = curlvl + 1;
+    let lvlup = new Discord.RichEmbed()
+    .setTitle(`${message.author.username} у вас новый уровень!`)
+    .setThumbnail(message.author.displayAvatarURL)
+    .addField(`Ваш уровень`, curlvl + 1)
+    .setColor('00ff54');
+    message.channel.send(lvlup);
+}
+fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
+    if(err) console.log(err)
+});
+});
+//XP SYSTEM END
+
+
 bot.on('ready', () => {
 let interval = setInterval (function () {
     var randomAnswer = answers[Math.floor(Math.random() * answers.length)];

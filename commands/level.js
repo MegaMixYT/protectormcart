@@ -19,7 +19,7 @@ let lvlEmbed = new Discord.RichEmbed()
 .addField("Опыт", curxp, true)
 .setThumbnail(message.author.displayAvatarURL)
 .setColor('00ff54')
-.setFooter(`До следующего опыта ${difference} опыта`, message.author.disaplyAvatarURL);
+.setFooter(`До следующего уровня ${difference} опыта`, message.author.disaplyAvatarURL);
 message.channel.send(lvlEmbed)
 }
 

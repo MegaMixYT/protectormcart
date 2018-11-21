@@ -3,6 +3,7 @@ let prefixs = require('../prefix.json');
 let fs = require('fs');
 
 module.exports.run = async (bot, message, args) => {
+    if(!message.member.hasPermission("ADMINISTRATOR")) retun message.reply('Вы не Администратор!');
 let prefixss = args[0];
     if(!prefixss) return message.channel.send('Укажите префикс!');
 if(!prefixs[message.guild.id]){

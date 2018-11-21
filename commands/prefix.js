@@ -4,6 +4,7 @@ let fs = require('fs');
 
 module.exports.run = async (bot, message, args) => {
 let prefixss = args[0];
+    if(!prefixss) return message.channel.send('Укажите префикс!');
 if(!prefixs[message.guild.id]){
     prefixs[message.guild.id] = {
 prefix: prefixss

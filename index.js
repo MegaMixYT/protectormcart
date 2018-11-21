@@ -30,12 +30,20 @@ fs.readdir("./commands", (err, files) => {
 bot.login(process.env.TOKEN);
 
 
+//PREFIX SET
+bot.on('message', async message => {
+if(!prefixs[message.guild.id]){
+    xp[message.guild.id] = {
+prefix: 'db!'
+    };
+}
+});
+//PREFIX SET
+
+
 bot.on('message', async message => {
     if(message.author.bot) return;
   let prefix = prefixs[message.guild.id].prefix;
-  if(!prefix){
-  let prefix = 'db!';
-  };
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
@@ -49,9 +57,6 @@ if(commandfile) commandfile.run(bot,message,args);
 //XP SYSTEM OPEN
 bot.on('message', async message => {
   let prefix = prefixs[message.guild.id].prefix;
-  if(!prefix){
-  let prefix = 'db!';
-  };
 let xpAdd = Math.floor(Math.random() * 7) + 8;
 
 if(!xp[message.author.id]){
@@ -97,9 +102,6 @@ let interval = setInterval (function () {
 bot.on('messageUpdate', async (oldMessage, message) => {
   if(message.author.bot) return;
   let prefix = prefixs[message.guild.id].prefix;
-  if(!prefix){
-  let prefix = 'db!';
-  };
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);

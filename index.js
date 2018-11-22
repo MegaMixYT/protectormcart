@@ -56,6 +56,7 @@ if(commandfile) commandfile.run(bot,message,args);
 
 //XP SYSTEM OPEN
 bot.on('message', async message => {
+    if(message.author.bot) return;
   let prefix = prefixs[message.guild.id].prefix;
 let xpAdd = Math.floor(Math.random() * 7) + 8;
 

@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
  
       message.channel.send(clean(evaled), {code:"xl"});
     } catch (err) {
-      message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+      message.channel.send(`\`ERROR\` \`\`\`xl\n${err}\n\`\`\``);
     }
 }
 module.exports.help = {

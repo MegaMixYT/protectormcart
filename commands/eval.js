@@ -18,8 +18,6 @@ module.exports.run = async (bot, message, args) => {
       
     } catch (err) {
       message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
-      bot.destroy()
-      bot.login(process.env.TOKEN);
     }
 }
 module.exports.help = {

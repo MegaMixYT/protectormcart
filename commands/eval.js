@@ -13,7 +13,8 @@ module.exports.run = async (bot, message, args) => {
       let evaled = eval(code);
  
       if (typeof evaled !== "string")
-        evaled = require("util").inspect(evaled);
+        evaled = 0;
+        if (evaled = "0") return;
  
       message.channel.send(clean(evaled), {code:"xl"});
     } catch (err) {

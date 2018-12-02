@@ -12,7 +12,8 @@ module.exports.run = async (bot, message, args) => {
       const code = args.join(" ");
       let evaled = eval(code);
  
-
+      if (typeof evaled !== "string")
+        evaled = require("util").inspect(evaled);
  
       message.channel.send(clean(evaled), {code:"xl"});
     } catch (err) {

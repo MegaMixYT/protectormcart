@@ -12,8 +12,8 @@ module.exports.run = async (bot, message, args) => {
       const code = args.join(" ");
       let evaled = eval(code);
  
-      if (typeof evaled !== "string")
-        evaled = 0;
+      if (typeof evaled !== "string"){
+        evaled = 0;}
         if (evaled = "0") return;
  
       message.channel.send(clean(evaled), {code:"xl"});

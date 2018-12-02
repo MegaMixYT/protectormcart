@@ -14,11 +14,9 @@ module.exports.run = async (bot, message, args) => {
  
       if (typeof evaled !== "string")
         evaled = require("util").inspect(evaled);
+        if(evaled === "Promise { <pending> }") return;
         
      const gg = await message.channel.send(clean(evaled), {code:"xl"});
-        if(gg = "Promise { <pending> }"){
-        gg.delete;
-        }
     } catch (err) {
       message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
     }

@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const inspect = require("inspect");
 
 module.exports.run = async (bot, message, args) => {
     if(message.author.id !== "355384371362136075") return;

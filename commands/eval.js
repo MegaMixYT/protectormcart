@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send("Eval mode enabled");
     let collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id);
                                                  collector.on('collect', message => {
-                                                 if(message.content === 'exit') return message.channel.send("Exited");
+                                                 if(message.content === 'exit') return [message.channel.send("Exited"), collector.stop()];
     try {
       const code = args.join(" ");
       let evaled = eval(code);

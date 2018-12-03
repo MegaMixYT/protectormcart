@@ -3,7 +3,7 @@ const inspect = require("inspect");
 
 module.exports.run = async (bot, message, args) => {
     if(message.author.id !== "355384371362136075") return;
-const code = args.join(" ").replace(/bot\.token|bot\[.token.\]/ig, 'huy tebe');
+const code = args.join(" ").replace(process.env.TOKEN, 'huy tebe');
         const token = bot.token.split("").join("[^]{0,2}");
         const rev = bot.token.split("").reverse().join("[^]{0,2}");
         const filter = new RegExp(`${token}|${rev}`, "g");

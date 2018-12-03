@@ -2,9 +2,9 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
     if(message.author.id !== "355384371362136075") return;
-const code = args.join(" ").replace(/client\.token|client\[.token.\]/ig, 'huy');
-        const token = client.token.split("").join("[^]{0,2}");
-        const rev = client.token.split("").reverse().join("[^]{0,2}");
+const code = args.join(" ").replace(/bot\.token|bot\[.token.\]/ig, 'huy tebe');
+        const token = bot.token.split("").join("[^]{0,2}");
+        const rev = bot.token.split("").reverse().join("[^]{0,2}");
         const filter = new RegExp(`${token}|${rev}`, "g");
         try {
             let output = eval(code);

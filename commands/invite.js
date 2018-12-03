@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
        .setTitle('Приглашения:')
        .addField('Пригласить бота', 'https://bit.ly/protectori', false)
        .addField('Оффициальный сервер', 'https://discord.gg/bk3stFj', false)
-       .setFooter(`DydleBoat by MCArTyR`, message.author.displayAvatarURL);
+       .setFooter(`${bot.user.username} by MCArTyR`, message.author.displayAvatarURL);
       message.channel.send(hEmbed);
 }
 

@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
       return text;
 }
     message.channel.send("Eval mode enabled");
-    let collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id;
+    let collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id);
                                                  collector.on('collect', message => {
                                                  if(message.content === 'exit') return message.channel.send("Exited");
     try {

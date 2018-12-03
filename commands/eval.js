@@ -2,24 +2,36 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
     if(message.author.id !== "355384371362136075") return;
-    function clean(text) {
-  if (typeof(text) === "string")
-    return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
-  else
-      return text;
-}
-    try {
-      const code = args.join(" ");
-      let evaled = eval(code);
- 
-      if (typeof evaled !== "string")
-        evaled = require("util").inspect(evaled);
-        if(evaled === "Promise { <pending> }") return;
-        
-     const gg = await message.channel.send(clean(evaled), {code:"xl"});
-    } catch (err) {
-      message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
-    }
+const code = args.join(" ").replace(/client\.token|client\[.token.\]/ig, 'huy');
+        const token = client.token.split("").join("[^]{0,2}");
+        const rev = client.token.split("").reverse().join("[^]{0,2}");
+        const filter = new RegExp(`${token}|${rev}`, "g");
+        try {
+            let output = eval(code);
+            if (output instanceof Promise || (Boolean(output) && typeof output.then === "function" && typeof output.catch === "function")) output = await output;
+            output = inspect(output, { depth: 0, maxArrayLength: null });
+            output = output.replace(filter, "[TOKEN]");
+            output = clean(output);
+            if (output.length < 1950) {
+                //Отправляет пользователю данные эмуляции.
+                message.author.send(`\`\`\`js\n${output}\n\`\`\``);
+                //Ставит реакцию (выполнено).
+                message.react("✅")
+            } else {
+                message.author.send(`${output}`, {split:"\n", code:"js"});
+            }
+        } catch (error) {
+            //Захватывает ошибку и говорит об этом.
+            message.channel.send(`Error \`\`\`js\n${error}\`\`\``);
+            //Ставит реакцию (Ошибка).
+            message.react("❎")
+        }
+
+        function clean(text)  {
+            return text
+                .replace(/`/g, "`" + String.fromCharCode(8203))
+                .replace(/@/g, "@" + String.fromCharCode(8203));
+        }
 }
 module.exports.help = {
     name: "eval"

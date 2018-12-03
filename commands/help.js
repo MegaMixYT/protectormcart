@@ -39,7 +39,7 @@ module.exports.run = async (bot, message, args) => {
        .addField(`db!mute - замутить пользователя! Обязательно во всех каналах запретите роли "muted" отправлять сообщения!`, `Пример: db!mute @MCArTyR#1143`, false)
        .addField(`db!unmute - размутить замученного человека`, `Пример: db!unmute @MCArTyR#1143`, false)
        .addField(`db!warn - выдаёт игроку предупреждение`, `Пример: db!warn @MCArTyR#1143`)
-       .setFooter(`DydleBoat by MCArTyR`, message.author.displayAvatarURL);
+       .setFooter(`${bot.user.username} by MCArTyR`, message.author.displayAvatarURL);
       message.author.send(hEmbed);
 }
 

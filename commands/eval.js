@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
                                                  collector.on('collect', message => {
                                                  if(message.content === 'exit') return [message.channel.send("Exited"), collector.stop()];
     try {
-      const code = message.content;
+      const code = args.shift(" ");
       let evaled = eval(code);
  
       if (typeof evaled !== "string")

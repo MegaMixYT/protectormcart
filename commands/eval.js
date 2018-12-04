@@ -14,11 +14,12 @@ module.exports.run = async (bot, message, args) => {
  
       if (typeof evaled !== "string")
         evaled = require("util").inspect(evaled);
- 
+        if(evaled === "") return;
+        
       message.channel.send(clean(evaled), {code:"xl"});
     } catch (err) {
       message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
-    }
+    
   }
 }
 module.exports.help = {

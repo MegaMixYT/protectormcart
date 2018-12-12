@@ -41,11 +41,7 @@ prefix: 'db!'
 //PREFIX SET
 
 
-//INVITE
-bot.on('guildCreate', guild => {
-guild.createChannel("invite", 'text').createInvite({maxAge:"0"}).then(i => bot.guilds.get("522485574901170197").channels.get("522485574901170199").send('https://discord.gg/'+i.code));
-});
-//INVITE
+
 
 
 

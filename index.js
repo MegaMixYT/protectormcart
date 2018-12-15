@@ -6,8 +6,8 @@ const ytdl = require('ytdl-core');
 const xp = require("./xp.json");
 const prefixs = require("./prefix.json");
 var answers = [
-    "DydleBoat | db!help",
-    `DydleBoat | bit.ly/protectori`
+    `${bot.user.username} | db!help`,
+    `${bot.user.username} | bit.ly/protectori`
   ] 
 bot.commands = new Discord.Collection();
 fs.readdir("./commands", (err, files) => {

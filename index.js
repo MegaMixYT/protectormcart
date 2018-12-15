@@ -1,4 +1,4 @@
-const { Client, Util } = require('discord.js');
+﻿const { Client, Util } = require('discord.js');
 const Discord = require('discord.js');
 const fs = require("fs");
 const ms = require("ms");

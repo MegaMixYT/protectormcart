@@ -5,6 +5,7 @@ const ms = require("ms");
 const xp = require("./xp.json");
 const prefixs = require("./prefix.json");
 const YouTube = require('simple-youtube-api');
+const opus = require('opusscript');
 const ytdl = require('ytdl-core');
 const youtube = new YouTube(process.env.GOOGLE_API_KEY);
 const queue = new Map();

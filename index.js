@@ -127,7 +127,7 @@ if(commandfile) commandfile.run(bot,message,args);
 }else{}
   });
  //MUSIC
-  client.on('message', async msg => { // eslint-disable-line
+  bot.on('message', async msg => { // eslint-disable-line
     let PREFIX = prefixs[message.guild.id].prefix;
     if (msg.author.bot) return undefined;
 	if (!msg.content.startsWith(PREFIX)) return undefined;

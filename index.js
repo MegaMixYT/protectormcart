@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { Client, Util } = require('discord.js');
 const bot = new Discord.Client();
 const fs = require("fs");
 const ms = require("ms");
@@ -8,6 +8,10 @@ const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const youtube = new YouTube(process.env.GOOGLE_API_KEY);
 const queue = new Map();
+
+
+const bot = new Client({ disableEveryone: true });
+
 var answers = [
     `VasBoat | db!help`,
     `VasBoat | bit.ly/protectori`

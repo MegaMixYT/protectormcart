@@ -36,10 +36,10 @@ let date2 = new Date(mem.createdTimestamp)
 let date3 = new Date(message.guild.members.get(mem.id).joinedTimestamp)
 let diff1 = Math.round(Math.abs((date1.getTime() - date2.getTime()) / day))
 let diff2 = Math.round(Math.abs((date1.getTime() - date3.getTime()) / day))
-if(mem.presence.status == 'online') let sts = 'В сети';
-if(mem.presence.status == 'idle') let sts = 'Не активен';
-if(mem.presence.status == 'dnd') let sts = 'Не беспокоить';
-if(mem.presence.status == 'offline') let sts = 'Не в сети';
+if(mem.presence.status == 'online'){ let sts = 'В сети'};
+if(mem.presence.status == 'idle'){ let sts = 'Не активен'};
+if(mem.presence.status == 'dnd'){ let sts = 'Не беспокоить'};
+if(mem.presence.status == 'offline'){ let sts = 'Не в сети'};
 let r = new Discord.RichEmbed()
 .setColor('00ff54')
 .setTitle(`${mem} | ${sts} ${mem.presence.game}`)

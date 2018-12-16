@@ -2,7 +2,8 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 let mem = message.mentions.users.first() || message.author;
-//FUNCTION
+let sts;
+  //FUNCTION
 Date.prototype.customFormat = function(formatString){
   var YYYY,YY,MMMM,MMM,MM,M,DDDD,DDD,DD,D,hhhh,hhh,hh,h,mm,m,ss,s,ampm,AMPM,dMod,th;
   YY = ((YYYY=this.getFullYear())+"").slice(-2);

@@ -31,13 +31,7 @@ let date2 = new Date(mem.createdTimestamp)
 let date3 = new Date(message.guild.members.get(mem.id).joinedTimestamp)
 let diff1 = Math.round(Math.abs((date1.getTime() - date2.getTime()) / day))
 let diff2 = Math.round(Math.abs((date1.getTime() - date3.getTime()) / day))
-if(mem.presence.status == 'online')
-{ let sts = 'В сети'}else if(mem.presence.status == 'idle')
-{ let sts = 'Не активен'}else if(mem.presence.status == 'dnd')
-{ let sts = 'Не беспокоить'}else if(mem.presence.status == 'offline')
-{ let sts = 'Не в сети'}else{}
 let r = new Discord.RichEmbed()
-.setTitle(`${mem.tag} | ${sts} ${mem.presence.game}`)
 .addField(`Дата регистрации`, `${crtAt.customFormat("#DD#.#MM#.#YYYY# в #hh#:#mm#:#ss#")}\n(${diff1} дн. назад)`, true)
 .addField(`Дата Вступления`, `${date3.customFormat("#DD#.#MM#.#YYYY# в #hh#:#mm#:#ss#")}\n(${diff2} дн. назад)`, true)
 .addField('Роли', message.guild.members.get(mem.id).roles.map(role => role.name).join(', ').replace(/@everyone, /, '') || `Нет ролей`)
@@ -45,6 +39,11 @@ let r = new Discord.RichEmbed()
 .setTimestamp()
 .setThumbnail(mem.displayAvatarURL)
 .setFooter(`ID: ${mem.id}`);
+if(mem.presence.status == 'online')
+{ let sts = 'В сети';r.setTitle(`${mem.tag} | ${sts} ${mem.presence.game}`);}else if(mem.presence.status == 'idle')
+{ let sts = 'Не активен';r.setTitle(`${mem.tag} | ${sts} ${mem.presence.game}`);}else if(mem.presence.status == 'dnd')
+{ let sts = 'Не беспокоить';r.setTitle(`${mem.tag} | ${sts} ${mem.presence.game}`);}else if(mem.presence.status == 'offline')
+{ let sts = 'Не в сети';r.setTitle(`${mem.tag} | ${sts} ${mem.presence.game}`);}else{}
 message.channel.send(r);
 }
 

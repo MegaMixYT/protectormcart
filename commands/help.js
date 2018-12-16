@@ -22,6 +22,8 @@ module.exports.run = async (bot, message, args) => {
        .addField(`db!invite - ссылка на приглашение бота, и на оффициальный сервер`, `Пример: db!invite`, false)
        .addField(`db!ping - показывает ваш пинг`, `Пример: db!ping`, false)
        .addField(`db!qrgen - Генерирует Qr-code`, `Пример: db!qrcode Привет!`, false)
+       .addField(`db!prunememb - Кикает участников, неактивных в течении определённых дней`, `Пример: db!prunememb 5`, false)
+       .addField(`db!user-info - Информация о пользователе`, `Пример: db!user-info @MCArTyR#1143`, false)
        .addField(`db!a-qrgen - Генерирует Qr-code с удалением вашего сообщения`, `Пример: db!a-qrcode Привет!`, false)
        .addField(`db!developer - имя разработчика!`, `Пример: db!developer`, false)
        .addField(`db!level - показывает ваш уровень и опыт`, `Пример: db!level`, false)

@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
+let mem = message.mentions.users.first() || message.author;
 //FUNCTION
 Date.prototype.customFormat = function(formatString){
   var YYYY,YY,MMMM,MMM,MM,M,DDDD,DDD,DD,D,hhhh,hhh,hh,h,mm,m,ss,s,ampm,AMPM,dMod,th;
@@ -22,13 +23,6 @@ Date.prototype.customFormat = function(formatString){
   return formatString.replace("#hhhh#",hhhh).replace("#hhh#",hhh).replace("#hh#",hh).replace("#h#",h).replace("#mm#",mm).replace("#m#",m).replace("#ss#",ss).replace("#s#",s).replace("#ampm#",ampm).replace("#AMPM#",AMPM);
 };
 //FUNCTION
-let statuses = {
-online: 'В сети',
-idle: 'Нет на месте',
-dnd: 'Не беспокоить',
-offline: 'Не в сети'
-}
-let mem = message.mentions.users.first() || message.author;
 var crtAt = new Date(mem.createdAt);
 let day = 1000 * 60 * 60 * 24
 let date1 = new Date(message.createdTimestamp)
@@ -36,10 +30,11 @@ let date2 = new Date(mem.createdTimestamp)
 let date3 = new Date(message.guild.members.get(mem.id).joinedTimestamp)
 let diff1 = Math.round(Math.abs((date1.getTime() - date2.getTime()) / day))
 let diff2 = Math.round(Math.abs((date1.getTime() - date3.getTime()) / day))
-if(mem.presence.status == 'online'){ let sts = 'В сети'};
-if(mem.presence.status == 'idle'){ let sts = 'Не активен'};
-if(mem.presence.status == 'dnd'){ let sts = 'Не беспокоить'};
-if(mem.presence.status == 'offline'){ let sts = 'Не в сети'};
+if(mem.presence.status == 'online')
+{ let sts === 'В сети'}else if(mem.presence.status == 'idle')
+{ let sts === 'Не активен'}else if(mem.presence.status == 'dnd')
+{ let sts === 'Не беспокоить'}else if(mem.presence.status == 'offline')
+{ let sts === 'Не в сети'}else{}
 let r = new Discord.RichEmbed()
 .setTitle(`${mem.tag} | ${sts} ${mem.presence.game}`)
 .addField(`Дата регистрации`, `${crtAt.customFormat("#DD#.#MM#.#YYYY# в #hh#:#mm#:#ss#")}\n(${diff1} дн. назад)`, true)

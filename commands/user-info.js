@@ -40,7 +40,7 @@ let r = new Discord.RichEmbed()
 .setThumbnail(mem.displayAvatarURL)
 .setFooter(`ID: ${mem.id}`);
  let gamet
-if (mem.presence.game.type == 0) gamet = `Играет в ${}`
+if (mem.presence.game.type == 0) gamet = `Играет в ${mem.presence.game.name}`
 else if (mem.presence.game.type == 1) gamet = `Стримит **${mem.presence.game.name}**`
 else if (mem.presence.game.type == 2) gamet = `Слушает **${mem.presence.game.name}**`
 else if (mem.presence.game.type == 3) gamet = `Смотрит **${mem.presence.game.name}**`

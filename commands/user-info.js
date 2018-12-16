@@ -39,11 +39,18 @@ let r = new Discord.RichEmbed()
 .setTimestamp()
 .setThumbnail(mem.displayAvatarURL)
 .setFooter(`ID: ${mem.id}`);
+ let gamet =
+if (mem.presence.game.type == 0){ gamet = `Играет в **${argsUser.presence.game.name}**`}}
+else if (mem.presence.game.type == 1){ gamet = `Стримит [**${argsUser.presence.game.name}**](${argsUser.presence.game.url})`}
+else if (mem.presence.game.type == 2){ gamet = `Слушает **${argsUser.presence.game.name}**`}
+else if (mem.presence.game.type == 3){ gamet = `Смотрит **${argsUser.presence.game.name}**`};
 if(mem.presence.status == 'online')
-{ let sts = 'В сети';r.setTitle(`${mem.tag} | ${sts} ${mem.presence.game.name}`);}else if(mem.presence.status == 'idle')
+{ let sts = 'В сети';r.setTitle(`${mem.tag} | ${mem.gamet} ${sts}`);}else if(mem.presence.status == 'idle')
 { let sts = 'Не активен';r.setTitle(`${mem.tag} | ${sts} ${mem.presence.game.name}`);}else if(mem.presence.status == 'dnd')
 { let sts = 'Не беспокоить';r.setTitle(`${mem.tag} | ${sts} ${mem.presence.game.name}`);}else if(mem.presence.status == 'offline')
 { let sts = 'Не в сети';r.setTitle(`${mem.tag} | ${sts} ${mem.presence.game.name}`);}else{}
+if(!mem.presence.game)
+{;r.setTitle(`${mem.tag} | Не во что не играет`);}else{};
 message.channel.send(r);
 }
 

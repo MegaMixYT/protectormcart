@@ -40,11 +40,11 @@ let r = new Discord.RichEmbed()
 .setThumbnail(mem.displayAvatarURL)
 .setFooter(`ID: ${mem.id}`);
  let gamet
-if (mem.presence.game.type == 0) gamet = `Играет в ${mem.presence.game.name}`
+if (!mem.presence.game.type) gamet = `Ни во-что не играет`
+else if (mem.presence.game.type == 0) gamet = `Играет в ${mem.presence.game.name}`
 else if (mem.presence.game.type == 1) gamet = `Стримит **${mem.presence.game.name}**`
 else if (mem.presence.game.type == 2) gamet = `Слушает **${mem.presence.game.name}**`
-else if (mem.presence.game.type == 3) gamet = `Смотрит **${mem.presence.game.name}**`
-else if (!mem.presence.game.type) gamet = `Ни во-что не играет`;
+else if (mem.presence.game.type == 3) gamet = `Смотрит **${mem.presence.game.name}**`;
 if(mem.presence.status == 'online')
 { let sts = 'В сети';r.setTitle(`${mem.tag} | ${sts} ${gamet}`);}else if(mem.presence.status == 'idle')
 { let sts = 'Не активен';r.setTitle(`${mem.tag} | ${sts} ${gamet}`);}else if(mem.presence.status == 'dnd')

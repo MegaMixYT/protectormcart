@@ -11,7 +11,7 @@ const youtube = new YouTube(process.env.GOOGLE_API_KEY);
 const queue = new Map();
 
 
-const bot = new Client({ disableEveryone: true });
+const bot = new Client();
 
 var answers = [
     `VasBoat | db!help`,

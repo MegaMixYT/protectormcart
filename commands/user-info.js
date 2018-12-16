@@ -40,10 +40,10 @@ let r = new Discord.RichEmbed()
 .setThumbnail(mem.displayAvatarURL)
 .setFooter(`ID: ${mem.id}`);
 if(mem.presence.status == 'online')
-{ let sts = 'В сети';r.setTitle(`${mem.tag} | ${sts} ${mem.presence.game}`);}else if(mem.presence.status == 'idle')
-{ let sts = 'Не активен';r.setTitle(`${mem.tag} | ${sts} ${mem.presence.game}`);}else if(mem.presence.status == 'dnd')
-{ let sts = 'Не беспокоить';r.setTitle(`${mem.tag} | ${sts} ${mem.presence.game}`);}else if(mem.presence.status == 'offline')
-{ let sts = 'Не в сети';r.setTitle(`${mem.tag} | ${sts} ${mem.presence.game}`);}else{}
+{ let sts = 'В сети';r.setTitle(`${mem.tag} | ${sts} ${mem.presence.game.name}`);}else if(mem.presence.status == 'idle')
+{ let sts = 'Не активен';r.setTitle(`${mem.tag} | ${sts} ${mem.presence.game.name}`);}else if(mem.presence.status == 'dnd')
+{ let sts = 'Не беспокоить';r.setTitle(`${mem.tag} | ${sts} ${mem.presence.game.name}`);}else if(mem.presence.status == 'offline')
+{ let sts = 'Не в сети';r.setTitle(`${mem.tag} | ${sts} ${mem.presence.game.name}`);}else{}
 message.channel.send(r);
 }
 

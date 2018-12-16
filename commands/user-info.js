@@ -39,7 +39,7 @@ let r = new Discord.RichEmbed()
 .setTimestamp()
 .setThumbnail(mem.displayAvatarURL)
 .setFooter(`ID: ${mem.id}`);
- let gamet =
+ let gamet
 if (mem.presence.game.type == 0){ gamet = `Играет в`}}
 else if (mem.presence.game.type == 1){ gamet = `Стримит`}
 else if (mem.presence.game.type == 2){ gamet = `Слушает`}

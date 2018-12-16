@@ -40,10 +40,10 @@ let r = new Discord.RichEmbed()
 .setThumbnail(mem.displayAvatarURL)
 .setFooter(`ID: ${mem.id}`);
  let gamet
-if (mem.presence.game.type == 0){ gamet = `Играет в`}}
-else if (mem.presence.game.type == 1){ gamet = `Стримит`}
-else if (mem.presence.game.type == 2){ gamet = `Слушает`}
-else if (mem.presence.game.type == 3){ gamet = `Смотрит`};
+if (mem.presence.game.type == 0) gamet = `Играет в`
+else if (mem.presence.game.type == 1) gamet = `Стримит`
+else if (mem.presence.game.type == 2) gamet = `Слушает`
+else if (mem.presence.game.type == 3) gamet = `Смотрит`;
 if(mem.presence.status == 'online')
 { let sts = 'В сети';r.setTitle(`${mem.tag} | ${mem.gamet} ${sts}`);}else if(mem.presence.status == 'idle')
 { let sts = 'Не активен';r.setTitle(`${mem.tag} | ${sts} ${gamet}`);}else if(mem.presence.status == 'dnd')

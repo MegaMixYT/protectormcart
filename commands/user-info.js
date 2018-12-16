@@ -41,11 +41,10 @@ if(mem.presence.status == 'idle'){ let sts = 'Не активен'};
 if(mem.presence.status == 'dnd'){ let sts = 'Не беспокоить'};
 if(mem.presence.status == 'offline'){ let sts = 'Не в сети'};
 let r = new Discord.RichEmbed()
-.setColor('00ff54')
-.setTitle(`${mem} | ${sts} ${mem.presence.game}`)
+.setTitle(`${mem.tag} | ${sts} ${mem.presence.game}`)
 .addField(`Дата регистрации`, `${crtAt.customFormat("#DD#.#MM#.#YYYY# в #hh#:#mm#:#ss#")}\n(${diff1} дн. назад)`, true)
 .addField(`Дата Вступления`, `${date3.customFormat("#DD#.#MM#.#YYYY# в #hh#:#mm#:#ss#")}\n(${diff2} дн. назад)`, true)
-.addField('Роли', message.guild.members.get(mem.id).roles.map(role => role.name.replace(/@everyone, /, /\g/).join(', ') || `Нет ролей`)
+.addField('Роли', message.guild.members.get(mem.id).roles.filter(r => r.id != message.guild.id).map(role => role.name.replace(/@everyone, /, /\g/).join(', ') || `Нет ролей`)
 .setColor(message.guild.members.get(mem.id).displayHexColor)
 .setTimestamp()
 .setThumbnail(mem.displayAvatarURL)

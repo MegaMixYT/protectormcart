@@ -1,15 +1,8 @@
-const Discord = require("discord.js");
-let xp = require('../xp.json');
+﻿const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-if(!xp[message.author.id]){
-    xp[message.author.id] = {
-xp: 0,
-level: 1
-    };
-}
 let curxp = xp[message.author.id].xp;
-let curlvl = xp[message.author.id].level;
+let curlvl = con.query(`SELECT level FROM xp WHERE id = '${message.author.id}'`);
 let nxtLvlXp = curlvl * 700;
 let difference = nxtLvlXp - curxp;
 

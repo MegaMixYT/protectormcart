@@ -1,20 +1,12 @@
-const Discord = require("discord.js");
-let prefixs = require('../prefix.json');
-let fs = require('fs');
+﻿const Discord = require("discord.js");
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message, args, con) => {
+let curpref = con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`);
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply('Вы не Администратор!');
 let prefixss = args[0];
-    if(!prefixss) return message.channel.send(`Префикс на этом сервере **${prefixs[message.guild.id].prefix}**`);
-if(!prefixs[message.guild.id]){
-    prefixs[message.guild.id] = {
-prefix: prefixss
-    };
-}
-prefixs[message.guild.id].prefix = prefixss;
-fs.writeFile("../prefix.json", JSON.stringify(prefixss), (err) => {
-    if(err) return console.log(err)
-});
+    if(!prefixss) return message.channel.send(`Префикс на этом сервере **${curpref}**`);
+con.query(`UPDATE xp SET prefix = prefixss WHERE id = '${message.guild.id}'`);
+
 let prEmbed = new Discord.RichEmbed()
 .setColor('00ff54')
 .setTitle('Префикс успешно установлен')

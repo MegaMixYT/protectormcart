@@ -5,12 +5,26 @@ const ms = require("ms");
 const xp = require("./xp.json");
 const prefixs = require("./prefix.json");
 const YouTube = require('simple-youtube-api');
-const opus = require('opusscript');
+const opus = require('node-opus');
 const ytdl = require('ytdl-core');
 const youtube = new YouTube(process.env.GOOGLE_API_KEY);
 const queue = new Map();
+const DBL = require("dblapi.js");
 
-
+//MySQL Connect
+const dbl = new DBL(process.env.BOT_KEY)
+const con = mysql.createConnection({
+  host: process.env.HOST,
+  user: process.env.USER,
+  password:  process.env.PASS,
+  database:  process.env.DATABASE
+});
+//MySQL Connect Message
+con.connect(err => {
+	if (err) throw err;
+  console.log("Сonnected to database")
+})
+//MySQL END
 const bot = new Client();
 
 var answers = [
@@ -38,18 +52,6 @@ fs.readdir("./commands", (err, files) => {
 bot.login(process.env.TOKEN);
 
 
-//PREFIX SET
-bot.on('message', async message => {
-if(!prefixs[message.guild.id]){
-    prefixs[message.guild.id] = {
-prefix: 'db!'
-    };
-}
-});
-//PREFIX SET
-
-
-
 
 //New server
 bot.on('guildCreate', async guild => {
@@ -58,12 +60,17 @@ bot.on('guildCreate', async guild => {
 })
 //New server
 
+let prf;
+if(prf == 0){
+	let prf = con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`);
 
-
+}else{
+	prf = 'db!';
+}
 
 bot.on('message', async message => {
     if(message.author.bot) return;
-  let prefix = prefixs[message.guild.id].prefix;
+    let prefix = con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`);
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
@@ -79,20 +86,12 @@ bot.on('message', async message => {
     if(message.author.bot) return;
   let prefix = prefixs[message.guild.id].prefix;
 let xpAdd = Math.floor(Math.random() * 7) + 8;
-
-if(!xp[message.author.id]){
-    xp[message.author.id] = {
-        xp: 0,
-        level: 1
-    };
-}
-
-let curxp = xp[message.author.id].xp;
-let curlvl = xp[message.author.id].level;
-let nxtLvl = xp[message.author.id].level * 700;
+let curxp = con.query(`SELECT xp FROM xp WHERE id = '${message.author.id}'`);
+let curlvl = con.query(`SELECT level FROM xp WHERE id = '${message.author.id}'`);
+let nxtLvl = curlvl * 700;
 xp[message.author.id].xp = curxp + xpAdd;
-if(nxtLvl <= xp[message.author.id].xp){
-    xp[message.author.id].level = curlvl + 1;
+if(nxtLvl <= curxp){
+    `UPDATE xp SET level = curlvl + 1 WHERE id = '${message.author.id}'`
     let lvlup = new Discord.RichEmbed()
     .setTitle(`${message.author.username} у вас новый уровень!`)
     .setThumbnail(message.author.displayAvatarURL)

@@ -60,17 +60,12 @@ bot.on('guildCreate', async guild => {
 })
 //New server
 
-let prf;
-if(prf == 0){
-	let prf = con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`);
-
-}else{
-	prf = 'db!';
-}
 
 bot.on('message', async message => {
     if(message.author.bot) return;
-    let prefix = con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`);
+	let prefix = con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`, (err, rows) => {
+	if(!rows[0].prefix) { prefix = 'db!' }
+	})
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
@@ -84,12 +79,18 @@ if(commandfile) commandfile.run(bot,message,args);
 //XP SYSTEM OPEN
 bot.on('message', async message => {
     if(message.author.bot) return;
-  let prefix = prefixs[message.guild.id].prefix;
+	let prefix = con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`, (err, rows) => {
+	if(!rows[0].prefix) { prefix = 'db!' }
+	})
 let xpAdd = Math.floor(Math.random() * 7) + 8;
-let curxp = con.query(`SELECT xp FROM xp WHERE id = '${message.author.id}'`);
-let curlvl = con.query(`SELECT level FROM xp WHERE id = '${message.author.id}'`);
+let curxp = con.query(`SELECT xp FROM xp WHERE id = '${message.author.id}'`), (err, rows) => {
+	if(!rows[0].xp) { curxp = 0 }
+	});
+let curlvl = con.query(`SELECT level FROM xp WHERE id = '${message.author.id}'`), (err, rows) => {
+	if(!rows[0].level) { curlvl = 0 }
+	});
 let nxtLvl = curlvl * 700;
-xp[message.author.id].xp = curxp + xpAdd;
+con.query(`UPDATE xp SET xp = curxp + xpAdd WHERE id = '${newUser.id}'`);
 if(nxtLvl <= curxp){
     `UPDATE xp SET level = curlvl + 1 WHERE id = '${message.author.id}'`
     let lvlup = new Discord.RichEmbed()
@@ -121,7 +122,9 @@ let interval = setInterval (function () {
 });
 bot.on('messageUpdate', async (oldMessage, message) => {
   if(message.author.bot) return;
-  let prefix = prefixs[message.guild.id].prefix;
+	let prefix = con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`, (err, rows) => {
+	if(!rows[0].prefix) { prefix = 'db!' }
+	})
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);

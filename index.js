@@ -83,16 +83,16 @@ bot.on('message', async message => {
 	if(!rows[0].prefix) { prefix = 'db!' }
 	})
 let xpAdd = Math.floor(Math.random() * 7) + 8;
-let curxp = con.query(`SELECT xp FROM xp WHERE id = '${message.author.id}'`), (err, rows) => {
+let curxp = con.query(`SELECT xp FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
 	if(!rows[0].xp) { curxp = 0 }
 	});
-let curlvl = con.query(`SELECT level FROM xp WHERE id = '${message.author.id}'`), (err, rows) => {
+let curlvl = con.query(`SELECT level FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
 	if(!rows[0].level) { curlvl = 0 }
 	});
 let nxtLvl = curlvl * 700;
 con.query(`UPDATE xp SET xp = curxp + xpAdd WHERE id = '${newUser.id}'`);
 if(nxtLvl <= curxp){
-    `UPDATE xp SET level = curlvl + 1 WHERE id = '${message.author.id}'`
+    con.query(`UPDATE xp SET level = curlvl + 1 WHERE id = '${message.author.id}'`);
     let lvlup = new Discord.RichEmbed()
     .setTitle(`${message.author.username} у вас новый уровень!`)
     .setThumbnail(message.author.displayAvatarURL)

@@ -83,8 +83,8 @@ if(commandfile) commandfile.run(bot,message,args);
 bot.on('message', async message => {
     if(message.author.bot) return;
     let prefix;
-	let curlvl;
 	let curxp;
+	let curlvl;
     con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`, (err, rows) => {
      if(!rows[0].prefix) return prefix = 'db!' ;
     prefix = rows[0].prefix;

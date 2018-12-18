@@ -64,11 +64,7 @@ bot.on('guildCreate', async guild => {
 
 bot.on('message', async message => {
     if(message.author.bot) return;
-    let prefix;
-    con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`, (err, rows) => {
-     if(!rows[0].prefix) return prefix = 'db!' ;
-    prefix = rows[0].prefix;
-    })
+    let prefix = 'db!';
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
@@ -81,14 +77,10 @@ if(commandfile) commandfile.run(bot,message,args);
 
 //XP SYSTEM OPEN
 bot.on('message', async message => {
-    if(message.author.bot) return;
-    let prefix;
+    if(message.author.bot) return;    
+let prefix = 'db!';
 	let curxp;
 	let curlvl;
-    con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`, (err, rows) => {
-     if(!rows[0].prefix) return prefix = 'db!' ;
-    prefix = rows[0].prefix;
-    })
 let xpAdd = Math.floor(Math.random() * 7) + 8;
 con.query(`SELECT xp FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
      if(!rows[0].xp) return curxp = '0' ;
@@ -129,11 +121,7 @@ let interval = setInterval (function () {
 bot.on('messageUpdate', async (oldMessage, newMessage) => {
 	let message = newMessage;
   if(message.author.bot) return;
-    let prefix;
-    con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`, (err, rows) => {
-     if(!rows[0].prefix) return prefix = 'db!' ;
-    prefix = rows[0].prefix;
-    })
+    let prefix = 'db!';
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
@@ -144,11 +132,7 @@ if(commandfile) commandfile.run(bot,message,args);
   });
  //MUSIC
   bot.on('message', async msg => { // eslint-disable-line
-    let prefix;
-    con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`, (err, rows) => {
-     if(!rows[0].prefix) return prefix = 'db!' ;
-    prefix = rows[0].prefix;
-    })
+    let prefix = 'db!';
     if (msg.author.bot) return undefined;
 	if (!msg.content.startsWith(prefix)) return undefined;
 

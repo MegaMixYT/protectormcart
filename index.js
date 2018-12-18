@@ -136,7 +136,9 @@ if(commandfile) commandfile.run(bot,message,args);
   });
  //MUSIC
   bot.on('message', async msg => { // eslint-disable-line
-    let PREFIX = prefixs[msg.guild.id].prefix;
+	let prefix = con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`, (err, rows) => {
+	if(!rows[0].prefix) { prefix = 'db!' }
+	})
     if (msg.author.bot) return undefined;
 	if (!msg.content.startsWith(PREFIX)) return undefined;
 

@@ -90,11 +90,11 @@ bot.on('message', async message => {
     prefix = rows[0].prefix;
     })
 let xpAdd = Math.floor(Math.random() * 7) + 8;
-let curxp = con.query(`SELECT xp FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
+con.query(`SELECT xp FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
      if(!rows[0].xp) return curxp = '0' ;
     curxp = rows[0].xp;
     })
-let curlvl = con.query(`SELECT level FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
+con.query(`SELECT level FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
 
      if(!rows[0].curxp) return curxp = '0' ;
     curxp = rows[0].curxp;

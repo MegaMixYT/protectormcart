@@ -113,9 +113,6 @@ if(nxtLvl <= curxp){
     .setColor('00ff54');
     message.channel.send(lvlup);
 }
-fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
-    if(err) console.log(err)
-});
 });
 //XP SYSTEM END
 

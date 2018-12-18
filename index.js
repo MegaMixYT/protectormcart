@@ -133,7 +133,8 @@ let interval = setInterval (function () {
       }, 5 * 1000);
   console.log('Я готов')
 });
-bot.on('messageUpdate', async (oldMessage, message) => {
+bot.on('messageUpdate', async (oldMessage, newMessage) => {
+	let message = newMessage;
   if(message.author.bot) return;
     let prefix;
     con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`, (err, rows) => {

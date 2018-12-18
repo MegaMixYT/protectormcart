@@ -9,6 +9,7 @@ const opus = require('node-opus');
 const ytdl = require('ytdl-core');
 const youtube = new YouTube(process.env.GOOGLE_API_KEY);
 const queue = new Map();
+const mysql = require('mysql');
 const DBL = require("dblapi.js");
 
 //MySQL Connect

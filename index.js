@@ -64,9 +64,11 @@ bot.on('guildCreate', async guild => {
 
 bot.on('message', async message => {
     if(message.author.bot) return;
-	let prefix = con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`, (err, rows) => {
-	if(!rows[0].prefix) { prefix = 'db!' }
-	})
+    let prefix;
+    con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`, (err, rows) => {
+     if(!rows[0].prefix) return prefix = 'db!' ;
+    prefix = rows[0].prefix;
+    })
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
@@ -80,17 +82,27 @@ if(commandfile) commandfile.run(bot,message,args);
 //XP SYSTEM OPEN
 bot.on('message', async message => {
     if(message.author.bot) return;
-	let prefix = con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`, (err, rows) => {
-	if(!rows[0].prefix) { prefix = 'db!' }
-	})
+    let prefix;
+	let curlvl;
+	let curxp;
+    con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`, (err, rows) => {
+     if(!rows[0].prefix) return prefix = 'db!' ;
+    prefix = rows[0].prefix;
+    })
 let xpAdd = Math.floor(Math.random() * 7) + 8;
 let curxp = con.query(`SELECT xp FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
-	if(!rows[0].xp) { curxp = 0 }
-	});
+     if(!rows[0].xp) return curxp = '0' ;
+    curxp = rows[0].xp;
+    })
 let curlvl = con.query(`SELECT level FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
-	if(!rows[0].level) { curlvl = 0 }
-	});
-let nxtLvl = curlvl * 700;
+
+     if(!rows[0].curxp) return curxp = '0' ;
+    curxp = rows[0].curxp;
+    })
+     if(!rows[0].curlvl) return curlvl = '0' ;
+    curlvl = rows[0].level;
+    })
+	let nxtLvl = curlvl * 700;
 con.query(`UPDATE xp SET xp = curxp + xpAdd WHERE id = '${newUser.id}'`);
 if(nxtLvl <= curxp){
     con.query(`UPDATE xp SET level = curlvl + 1 WHERE id = '${message.author.id}'`);
@@ -123,9 +135,11 @@ let interval = setInterval (function () {
 });
 bot.on('messageUpdate', async (oldMessage, message) => {
   if(message.author.bot) return;
-	let prefix = con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`, (err, rows) => {
-	if(!rows[0].prefix) { prefix = 'db!' }
-	})
+    let prefix;
+    con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`, (err, rows) => {
+     if(!rows[0].prefix) return prefix = 'db!' ;
+    prefix = rows[0].prefix;
+    })
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
@@ -136,11 +150,13 @@ if(commandfile) commandfile.run(bot,message,args);
   });
  //MUSIC
   bot.on('message', async msg => { // eslint-disable-line
-	let prefix = con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`, (err, rows) => {
-	if(!rows[0].prefix) { prefix = 'db!' }
-	})
+    let prefix;
+    con.query(`SELECT prefix FROM xp WHERE id = '${message.guild.id}'`, (err, rows) => {
+     if(!rows[0].prefix) return prefix = 'db!' ;
+    prefix = rows[0].prefix;
+    })
     if (msg.author.bot) return undefined;
-	if (!msg.content.startsWith(PREFIX)) return undefined;
+	if (!msg.content.startsWith(prefix)) return undefined;
 
 	const args = msg.content.split(' ');
 	const searchString = args.slice(1).join(' ');

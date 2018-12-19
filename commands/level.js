@@ -1,8 +1,16 @@
 ﻿const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-let curxp = xp[message.author.id].xp;
-let curlvl = con.query(`SELECT level FROM xp WHERE id = '${message.author.id}'`);
+let curxp;
+con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
+     if(!rows[0]) return curxp = '0' ;
+    curxp = rows[0].xp;
+    })
+let curlvl;
+con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
+     if(!rows[0]) return curlvl = '0' ;
+    curlvl = rows[0].curlvl;
+    })
 let nxtLvlXp = curlvl * 700;
 let difference = nxtLvlXp - curxp;
 

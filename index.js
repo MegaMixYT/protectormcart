@@ -134,9 +134,9 @@ if(commandfile) commandfile.run(bot,message,args);
   });
  //MUSIC
   bot.on('message', async msg => { // eslint-disable-line
-    let prefix = 'db!';
+    let PREFIX = 'db!';
     if (msg.author.bot) return undefined;
-	if (!msg.content.startsWith(prefix)) return undefined;
+	if (!msg.content.startsWith(PREFIX)) return undefined;
 
 	const args = msg.content.split(' ');
 	const searchString = args.slice(1).join(' ');

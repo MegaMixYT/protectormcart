@@ -90,10 +90,12 @@ con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
      if(!rows[0]) return curxp = '0' ;
     curxp = rows[0].curxp;
     })
+	curlvll = curlvl + 1;
+	let nexXP = curxp + xpAdd;
 	let nxtLvl = curlvl * 700;
-con.query(`UPDATE xp SET xp = curxp + xpAdd WHERE id = '${message.author.id}'`);
+con.query(`UPDATE xp SET xp = '${nexXP}' WHERE id = '${message.author.id}'`);
 if(nxtLvl <= curxp){
-    con.query(`UPDATE xp SET level = curlvl + 1 WHERE id = '${message.author.id}'`);
+con.query(`UPDATE xp SET level = '${curlvll}' WHERE id = '${message.author.id}'`);
     let lvlup = new Discord.RichEmbed()
     .setTitle(`${message.author.username} у вас новый уровень!`)
     .setThumbnail(message.author.displayAvatarURL)

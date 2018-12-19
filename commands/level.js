@@ -1,6 +1,6 @@
 ﻿const Discord = require("discord.js");
 
-module.exports.run = async (bot, message, args, con) => {
+module.exports.run = async (bot, message, args, con, dbl, DBL, mysql) => {
 let curxp;
 con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
      if(!rows[0]) return curxp = '0' ;

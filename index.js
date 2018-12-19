@@ -91,7 +91,7 @@ con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
     curxp = rows[0].curxp;
     })
 	let nxtLvl = curlvl * 700;
-con.query(`UPDATE xp SET xp = curxp + xpAdd WHERE id = '${newUser.id}'`);
+con.query(`UPDATE xp SET xp = curxp + xpAdd WHERE id = '${message.author.id}'`);
 if(nxtLvl <= curxp){
     con.query(`UPDATE xp SET level = curlvl + 1 WHERE id = '${message.author.id}'`);
     let lvlup = new Discord.RichEmbed()

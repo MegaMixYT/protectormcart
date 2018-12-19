@@ -104,6 +104,14 @@ con.query(`UPDATE xp SET level = '${curlvll}' WHERE id = '${message.author.id}'`
     message.channel.send(lvlup);
 };
 if(message.content == `${prefix}level`){
+	con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
+     if(!rows[0]) return curxp = '0';
+    curxp = rows[0].xp;
+    })
+con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
+     if(!rows[0]) return curlvl = '0';
+    curlvl = rows[0].curlvl;
+    })
 let nxtLvlXp = curlvl * 700;
 let difference = nxtLvlXp - curxp;
 

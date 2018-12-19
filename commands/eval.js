@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-    if(message.author.id !== "355384371362136075") return;
+    if(message.author.id !== "355384371362136075" && message.author.id !== '474545288942452736') return;
     function clean(text) {
   if (typeof(text) === "string")
     return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));

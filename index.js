@@ -230,7 +230,7 @@ ${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}
 		serverQueue.connection.dispatcher.end('Stop комманда была использована!');
 		return msg.channel.send('Остановлено');
 	} else if (command === 'volume') {
-		if(args[1] >= '11') return msg.channel.send('Не больше чем 10!');
+		if(args[1] => '11') return msg.channel.send('Не больше чем 10!');
 		if (!msg.member.voiceChannel) return msg.channel.send('Вы не в голосовом канале!');
 		if (!serverQueue) return msg.channel.send('Ничего не играет.');
 		if (!args[1]) return msg.channel.send(`The current volume is: **${serverQueue.volume}**`);

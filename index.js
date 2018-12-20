@@ -232,6 +232,7 @@ ${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}
 	} else if (command === 'volume') {
 		if (!msg.member.voiceChannel) return msg.channel.send('Вы не в голосовом канале!');
 		if (!serverQueue) return msg.channel.send('Ничего не играет.');
+		if(args[1] != 0 && args[1] != 1 && args[1] != 2 && args[1] != 3 && args[1] != 4 && args[1] != 5 && args[1] != 6 && args[1] != 7 && args[1] != 8 && args[1] != 9 && args[1] != 10) return msg.channel.send('Не больше 10!');
 		if (!args[1]) return msg.channel.send(`The current volume is: **${serverQueue.volume}**`);
 		serverQueue.volume = args[1];
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);

@@ -230,13 +230,12 @@ ${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}
 		serverQueue.connection.dispatcher.end('Stop комманда была использована!');
 		return msg.channel.send('Остановлено');
 	} else if (command === 'volume') {
-		if(args[1] >= '101') return msg.channel.send('Не больше чем 100!');
-		let voll = args[1] / 10;
+		if(args[1] >= '11') return msg.channel.send('Не больше чем 10!');
 		if (!msg.member.voiceChannel) return msg.channel.send('Вы не в голосовом канале!');
 		if (!serverQueue) return msg.channel.send('Ничего не играет.');
 		if (!args[1]) return msg.channel.send(`The current volume is: **${serverQueue.volume}**`);
 		serverQueue.volume = args[1];
-		serverQueue.connection.dispatcher.setVolumeLogarithmic(voll / 5);
+		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
 		return msg.channel.send(`Я установил громкость на: **${args[1]}**`);
 	} else if (command === 'np') {
 		if (!serverQueue) return msg.channel.send('Ничего не играет.');

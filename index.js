@@ -222,13 +222,13 @@ ${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}
 		if (!msg.member.voiceChannel) return msg.channel.send('Вы не в голосовом канале!');
 		if (!serverQueue) return msg.channel.send('Нет ничего, что я мог бы пропустить для тебя.');
 		serverQueue.connection.dispatcher.end('Skip комманда была использована!');
-		return undefined;
+		return msg.channel.send('Пропущено');
 	} else if (command === 'stop') {
 		if (!msg.member.voiceChannel) return msg.channel.send('Вы не в голосовом канале!');
 		if (!serverQueue) return msg.channel.send('Нет ничего, что я мог бы остановить для тебя.');
 		serverQueue.songs = [];
 		serverQueue.connection.dispatcher.end('Stop комманда была использована!');
-		return undefined;
+		return msg.channel.send('Остановлено');
 	} else if (command === 'volume') {
 		if (!msg.member.voiceChannel) return msg.channel.send('Вы не в голосовом канале!');
 		if (!serverQueue) return msg.channel.send('Ничего не играет.');

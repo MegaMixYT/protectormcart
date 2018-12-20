@@ -107,11 +107,9 @@ if(message.content == `${prefix}level`){
 	con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
      if(!rows[0]) return curxp = '0';
     curxp = rows[0].xp;
-    })
 con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
      if(!rows[0]) return curlvl = '0';
     curlvl = rows[0].curlvl;
-    })
 let nxtLvlXp = curlvl * 700;
 let difference = nxtLvlXp - curxp;
 
@@ -123,6 +121,8 @@ let lvlEmbed = new Discord.RichEmbed()
 .setColor('00ff54')
 .setFooter(`До следующего уровня ${difference} опыта`, message.author.disaplyAvatarURL);
 message.channel.send(lvlEmbed)
+	})
+		})
 }
 });
 //XP SYSTEM END

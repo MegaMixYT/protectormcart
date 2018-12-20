@@ -25,6 +25,7 @@ module.exports.run = async (bot, message, args) => {
        .addField(`db!user-info - Информация о пользователе`, `Пример: db!user-info @MCArTyR#1143`, false)
        .addField(`db!a-qrgen - Генерирует Qr-code с удалением вашего сообщения`, `Пример: db!a-qrcode Привет!`, false)
        .addField(`db!developer - имя разработчика!`, `Пример: db!developer`, false)
+       .addField(`db!music - музыкальная помощь`, `Пример: db!music`)
        .addField(`db!level - показывает ваш уровень и опыт`, `Пример: db!level`, false)
        .addField(`db!randomcolor - генерирует случайный цвет`, `Пример: db!randomcolor`, false)
        .addField(`db!info - информация обо мне!`, `Пример: db!info`, false)

@@ -79,8 +79,6 @@ if(commandfile) commandfile.run(bot,message,args);
 bot.on('message', async message => {
     if(message.author.bot) return;    
 let prefix = 'db!';
-	let curxp;
-	let curlvl;
 let xpAdd = Math.floor(Math.random() * 7) + 8;
 let curxp = con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
      if(!rows[0]) return curxp = '0' ;
@@ -104,13 +102,6 @@ con.query(`UPDATE xp SET level = '${curlvll}' WHERE id = '${message.author.id}'`
     message.channel.send(lvlup);
 };
 if(message.content == `${prefix}level`){
-	let curxp = con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
-     if(!rows[0]) return curxp = '0';
-	})
-let curlvl = con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
-     if(!rows[0]) return curlvl = '0';
-    curlvl = rows[0].curlvl;
-})
 let nxtLvlXp = curlvl * 700;
 	let difference = nxtLvlXp - curxp;
 let lvlEmbed = new Discord.RichEmbed()

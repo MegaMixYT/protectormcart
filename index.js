@@ -105,22 +105,23 @@ con.query(`UPDATE xp SET level = '${curlvll}' WHERE id = '${message.author.id}'`
 })
 })
 if(message.content == `${prefix}level`){
-	let lvlEmbed = new Discord.RichEmbed()
-.setTitle(`${message.author.username} ваш уровень:`)
-.setThumbnail(message.author.displayAvatarURL)
-.setColor('00ff54');
-	con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
+	let curxp = con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
      if(!rows[0]) return curxp = '0';
-		lvlEmbed.addField("Опыт", curxp, true);
 	})
-con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
+let curlvl = con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
      if(!rows[0]) return curlvl = '0';
     curlvl = rows[0].curlvl;
-	lvlEmbed.addField("Уровень", curlvl, true);
-        lvlEmbed.setFooter(`Аватар`, message.author.disaplyAvatarURL);
 })
-
-message.channel.send(lvlEmbed)
+let nxtLvlXp = curlvl * 700;
+	let difference = nxtLvlXp - curxp;
+let lvlEmbed = new Discord.RichEmbed()
+.setTitle(`${message.author.username} ваш уровень:`)
+.setThumbnail(message.author.displayAvatarURL)
+.setColor('00ff54')
+.addField("Опыт", curxp, true)
+.addField("Уровень", curlvl, true)
+.setFooter(`До следующего уровня осталось ${difference}`, message.author.disaplyAvatarURL);
+message.channel.send(lvlEmbed);
 }
 });
 //XP SYSTEM END

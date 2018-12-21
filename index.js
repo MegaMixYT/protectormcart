@@ -82,13 +82,14 @@ let prefix = 'db!';
 	let curxp;
 	let curlvl;
 let xpAdd = Math.floor(Math.random() * 7) + 8;
-con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
+let curxp = con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
      if(!rows[0]) return curxp = '0' ;
     curxp = rows[0].xp;
-con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
+})
+let curlvl = con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
      if(!rows[0]) return curlvl = '0' ;
     curlvl = rows[0].curlvl;
-
+})
 	let = curlvll = curlvl + 1;
 	let nexXP = curxp + xpAdd;
 	let nxtLvl = curlvl * 700;
@@ -102,8 +103,6 @@ con.query(`UPDATE xp SET level = '${curlvll}' WHERE id = '${message.author.id}'`
     .setColor('00ff54');
     message.channel.send(lvlup);
 };
-})
-})
 if(message.content == `${prefix}level`){
 	let curxp = con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
      if(!rows[0]) return curxp = '0';
@@ -122,7 +121,9 @@ let lvlEmbed = new Discord.RichEmbed()
 .addField("Уровень", curlvl, true)
 .setFooter(`До следующего уровня осталось ${difference}`, message.author.disaplyAvatarURL);
 message.channel.send(lvlEmbed);
-	console.log(curxp + curlvl)
+	curxp.forEach(o =>{
+console.log(o)
+}
 }
 });
 //XP SYSTEM END

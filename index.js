@@ -122,6 +122,7 @@ let lvlEmbed = new Discord.RichEmbed()
 .addField("Уровень", curlvl, true)
 .setFooter(`До следующего уровня осталось ${difference}`, message.author.disaplyAvatarURL);
 message.channel.send(lvlEmbed);
+	console.log(curxp + curlvl)
 }
 });
 //XP SYSTEM END

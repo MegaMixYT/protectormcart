@@ -114,7 +114,7 @@ let lvlEmbed = new Discord.RichEmbed()
 message.channel.send(lvlEmbed);
 	curxp.forEach(o =>{
 console.log(o)
-}
+})
 }
 });
 //XP SYSTEM END

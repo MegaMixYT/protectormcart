@@ -111,7 +111,7 @@ if(message.content == `${prefix}level`){
 .setColor('00ff54');
 	con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
      if(!rows[0]) return curxp = '0';
-		lvlEmbed..addField("Опыт", curxp, true);
+		lvlEmbed.addField("Опыт", curxp, true);
 	})
 con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
      if(!rows[0]) return curlvl = '0';

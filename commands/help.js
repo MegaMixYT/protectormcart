@@ -43,6 +43,13 @@ module.exports.run = async (bot, message, args) => {
        .addField(`db!warn - выдаёт игроку предупреждение`, `Пример: db!warn @MCArTyR#1143`)
        .setFooter(`${bot.user.username} by MCArTyR`, message.author.displayAvatarURL);
       message.author.send(hEmbed);
+	  let TWOhEmbed = new Discord.RichEmbed()
+	        .setThumbnail(message.author.displayAvatarURL)
+       .setColor(randomAnswer)
+       .setTitle('Список команд 2:')
+       .addField(`db!translate - переводчик!`, `Пример: db!translate en Привет!`, false)
+       .setFooter(`${bot.user.username} by MCArTyR`, message.author.displayAvatarURL);
+	   message.author.send(TWOhEmbed);
 }
 
 

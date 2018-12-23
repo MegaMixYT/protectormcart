@@ -48,6 +48,7 @@ module.exports.run = async (bot, message, args) => {
        .setColor(randomAnswer)
        .setTitle('Список команд 2:')
        .addField(`db!translate - переводчик!`, `Пример: db!translate en Привет!`, false)
+       .addField(`db!color - характеристики цвета!`, `Пример: db!color #00ff54`, false)
        .setFooter(`${bot.user.username} by MCArTyR`, message.author.displayAvatarURL);
 	   message.author.send(TWOhEmbed);
 }

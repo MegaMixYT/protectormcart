@@ -106,5 +106,5 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(emb);
 }
 module.exports.help = {
-    name: "randomcolor"
+    name: "color"
 }

@@ -38,7 +38,7 @@ module.exports.run = async (bot, message, args) => {
        .addField(`db!say - отправить сообщение от имени бота!`, `Пример: db!say Привет!`, false)
        .addField(`db!dm - отправить сообщениев лс от имени бота!`, `Пример: db!dm @MCArTyR#1143 Привет!`, false)
        .addField(`db!fp - за фейспалмить человека!`, `Пример: db!fp @MCArTyR#1143`, false)
-       .addField(`db!mute - замутить пользователя! Обязательно во всех каналах запретите роли "muted" отправлять сообщения!`, `Пример: db!mute @MCArTyR#1143`, false)
+       .addField(`db!tempmute - замутить пользователя!`, `Пример: db!tempmute @MCArTyR#1143 10s/m/h/d`, false)
        .addField(`db!unmute - размутить замученного человека`, `Пример: db!unmute @MCArTyR#1143`, false)
        .addField(`db!warn - выдаёт игроку предупреждение`, `Пример: db!warn @MCArTyR#1143`)
        .setFooter(`${bot.user.username} by MCArTyR`, message.author.displayAvatarURL);

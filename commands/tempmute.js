@@ -9,7 +9,7 @@ let tomute = message.mentions.members.first() || message.guild.members.get(args[
 if(!tomute) return message.reply("Пользователь не найден!");
 if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("Я не могу замутить этого пользователя!");
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("У вас нет права `MANAGE_MESSAGES`!");
-let muterole = message.guild.roles.find(`name`, "muted");
+let muterole = message.guild.roles.find(role => role.name === "muted");
 //start of create role
 if(!muterole){
     try{
@@ -23,7 +23,7 @@ if(!muterole){
             }
 }
 //end of create role
-let mutr = message.guild.roles.find(`name`, "muted");
+let mutr = message.guild.roles.find(role => role.name === "muted");
 message.guild.channels.forEach(channel => {
     channel.overwritePermissions(mutr.id, {
             SEND_MESSAGES: false,

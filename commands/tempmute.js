@@ -18,15 +18,15 @@ if(!muterole){
             color: "#ff0000",
             permissions:[]
         })
-    message.guild.channels.forEach(channel => {
-            channel.overwritePermissions(muterole.id, {
-                    SEND_MESSAGES: false,
-                    ADD_REACTIONS: false
-                });
-            });
             }catch(e){
                 console.log(e.stack)
             }
+            message.guild.channels.forEach(channel => {
+                channel.overwritePermissions(muterole.id, {
+                        SEND_MESSAGES: false,
+                        ADD_REACTIONS: false
+                    });
+                });
 }
 //end of create role
 let mutetime = args[1];

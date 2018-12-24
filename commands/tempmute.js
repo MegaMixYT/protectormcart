@@ -21,14 +21,15 @@ if(!muterole){
             }catch(e){
                 console.log(e.stack)
             }
-            message.guild.channels.forEach(channel => {
-                channel.overwritePermissions(muterole.id, {
-                        SEND_MESSAGES: false,
-                        ADD_REACTIONS: false
-                    });
-                });
 }
 //end of create role
+let mutr = message.guild.roles.find(`name`, "muted");
+message.guild.channels.forEach(channel => {
+    channel.overwritePermissions(mutr.id, {
+            SEND_MESSAGES: false,
+            ADD_REACTIONS: false
+        });
+    });
 let mutetime = args[1];
 if(!mutetime) return message.reply("Укажите время!");
 

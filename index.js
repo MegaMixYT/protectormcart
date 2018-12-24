@@ -56,8 +56,13 @@ bot.login(process.env.TOKEN);
 
 //New server
 bot.on('guildCreate', async guild => {
-    const invc = await guild.createChannel('dont-delete', 'text');
-    bot.guilds.get(guild.id).channels.get(invc.id).createInvite({maxAge:"0"}).then(i => bot.guilds.get('522485574901170197').channels.get('523184795027767314').send('https://discord.gg/'+i.code));
+guild.createRole({name:'announcements'});
+let g = guild.channels.find(v => v.name === "VasBoat Announcements");
+if(!g){
+guild.createChannel({name:'VasBoat Announcements'});
+}
+let gg = guild.channel.find(v => v.name === "VasBoat Announcements");
+guild.channels.get(gg.id).send('@everyone если вы хотите получать уведомления о боте VasBoat напишите `db!новости`');
 })
 //New server
 
@@ -73,6 +78,9 @@ let commandfile = bot.commands.get(cmd.slice(prefix.length));
 if(commandfile) commandfile.run(bot,message,args);
 }else{ }
 });
+
+
+
 
 
 //XP SYSTEM OPEN

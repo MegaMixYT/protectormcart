@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
 
 let tomute = message.mentions.members.first() || message.guild.members.get(args[0]);
 if(!tomute) return message.reply("Пользователь не найден!");
-if(tomute.hasPemission("MANAGE_MESSAGES")) return message.reply("Я не могу замутить этого пользователя!");
+if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("Я не могу замутить этого пользователя!");
 if(!message.author.hasPermission("MANAGE_MESSAGES")) return message.reply("У вас нет права `MANAGE_MESSAGES`!");
 let muterole = message.guild.roles.find(`name`, "muted");
 //start of create role

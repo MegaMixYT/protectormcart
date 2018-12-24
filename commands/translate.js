@@ -9,8 +9,8 @@ request(`https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.2
 let arr = JSON.parse((body));
 let trEmb = new Discord.RichEmbed()
 .setTitle(`Переводчик ${arr.lang}`)
-.addField("До перевода", txt)
-.addField("После перевода", arr.text);
+.addField("До перевода", `\`\`\`\n${txt}\n\`\`\``)
+.addField("После перевода", `\`\`\`\n${arr.text}\n\`\`\``);
 message.channel.send(trEmb);
 })
 

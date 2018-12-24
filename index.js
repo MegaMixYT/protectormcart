@@ -80,46 +80,7 @@ if(commandfile) commandfile.run(bot,message,args);
 });
 
 
-bot.on('message', async message => {
-    if(message.author.bot) return;
-    let prefix = 'db!';
-if (message.content.startsWith("m!tempmute")){  
-    let tomute = message.guild.member(message.mentions.members.first() || message.guild.members.get(args[0]));
-    if(!tomute) return message.reply("Пользователь не найден!.")
-    if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("У вас нет прав!")
-    let muterole = message.guild.roles.find('name', 'muted');
-    if(!muterole){
-    try {    
-    muterole = await message.guild.createRole({
-        name: 'muted',
-        color: "#000000",
-        permissions: []
-        })
-        message.guild.channels.forEach(async, (channel, id) => {
-        await channel.overwritePermission(muterole, {
-        SEND_MESSAGES: false,
-            ADD_REACTIONS: false
-        });
-        })
-    } catch(e){
-        console.log(e.stack)
-    }
-    }
-//end of create    
-    let mutetime = args[1]
-if(!mutetime) return message.reply("you didn't specify the time!")
-    
-    await(tomute.addRole(muterole.id);
-          message.reply(`<@${tomute.id}> замучен на ${ms(mutetime)}`);
-          message.channel.send(`<@${tomute.id}> размучен!`)
-setTimeout(function(){
-tomute.removeRole(muterole.id);
 
-}, ms(mutetime));    
-
-//end of module
-} else {} 
-});
 
 
 //XP SYSTEM OPEN

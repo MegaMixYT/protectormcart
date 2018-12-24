@@ -12,7 +12,6 @@ if(!message.author.hasPermission("MANAGE_MESSAGES")) return message.reply("У в
 let muterole = message.guild.roles.find(`name`, "muted");
 //start of create role
 if(!muterole){
-(async() => {
     try{
         muterole = await message.guild.createRole({
             name:"muted",
@@ -20,7 +19,7 @@ if(!muterole){
             permissions:[]
         })
         message.guild.channels.forEach(async, (channel, id) => {
-         await channel.overwritePermissions(muterole, {
+        channel.overwritePermissions(muterole, {
                 SEND_MESSAGES: false,
                 ADD_REACTIONS: false
             });
@@ -28,7 +27,6 @@ if(!muterole){
             }catch(e){
                 console.log(e.stack)
             }
-})();
 }
 //end of create role
 let mutetime = args[1];

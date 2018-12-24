@@ -32,7 +32,7 @@ message.guild.channels.forEach(async, (channel, id) => {
 let mutetime = args[1];
 if(!mutetime) return message.reply("Укажите время!");
 
-await(tomute.addRole(muterole.id));
+await tomute.addRole(muterole.id);
 message.reply(`<@${tomute.id}> замучен на ${ms(ms(mutetime))}`);
 
 setTimeout(function(){

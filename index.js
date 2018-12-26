@@ -85,13 +85,13 @@ if(commandfile) commandfile.run(bot,message,args);
 bot.on('message', async message => {
 if(message.guild.id === '522465512232321044'){
 if(message.channel.id === '527526287565258753'){
-vswk.edit(message.author.tag, message.member.displayAvatarURL)
+vswk.edit(message.author.tag, message.author.displayAvatarURL)
 vswk.send(message.content);
 }
 }
 if(message.guild.id === '513729490518671360'){
 if(message.channel.id === '527522065763532835'){
-mbwk.edit(message.author.tag, message.member.displayAvatarURL)
+mbwk.edit(message.author.tag, message.author.displayAvatarURL)
 mbwk.send(message.content);
 }
 }

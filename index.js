@@ -59,7 +59,7 @@ bot.on('guildCreate', async guild => {
 guild.createRole({name:'vsb-announcements'});
 let g = guild.channels.find(v => v.name === "vasboat-announcements");
 if(!g){
-guild.createChannel({name:'vasboat-announcements'});
+guild.createChannel('vasboat-announcements');
 }
 let gg = guild.channels.find(v => v.name === "vasboat-announcements");
 guild.channels.get(gg.id).send('@everyone если вы хотите получать уведомления о боте VasBoat напишите `db!новости`');

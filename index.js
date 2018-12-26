@@ -91,7 +91,7 @@ vswk.edit(message.author.tag, message.author.displayAvatarURL).then(vswk.send(me
 }
 if(message.guild.id === '513729490518671360'){
 if(message.channel.id === '527522065763532835'){
-mbwk.edit(message.author.tag, message.author.displayAvatarURL).then(mbwk.send(message.content);
+mbwk.edit(message.author.tag, message.author.displayAvatarURL).then(mbwk.send(message.content));
 }
 }
 });

@@ -57,11 +57,11 @@ bot.login(process.env.TOKEN);
 //New server
 bot.on('guildCreate', async guild => {
 guild.createRole({name:'announcements'});
-let g = guild.channels.find(v => v.name === "VasBoat Announcements");
+let g = guild.channels.find(v => v.name === "vasboat-announcements");
 if(!g){
-guild.createChannel({name:'VasBoat Announcements'});
+guild.createChannel({name:'vasboat-announcements'});
 }
-let gg = guild.channels.find(v => v.name === "VasBoat Announcements");
+let gg = guild.channels.find(v => v.name === "vasboat-announcements");
 guild.channels.get(gg.id).send('@everyone если вы хотите получать уведомления о боте VasBoat напишите `db!новости`');
 })
 //New server

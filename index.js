@@ -11,6 +11,8 @@ const youtube = new YouTube(process.env.GOOGLE_API_KEY);
 const queue = new Map();
 const mysql = require('mysql');
 const DBL = require("dblapi.js");
+const mbwk = new Discord.WebhookClient('527526337217429504', 'Ht3Tq0yjxc3obw-PS0E12GhGriNEYBr3R_-JxX_spx-GofzuVMMW-j0ReG--cHfYnu51');
+const vswk = new Discord.WebhookClient('527524031176507393','J8NYOUNR4D6LPmk7E0732YUKWm1PY8Ue6f8TKVRIMFsI3jPVYIwPmp3GzjpkVjHGig_F');
 
 //MySQL Connect
 const dbl = new DBL(process.env.BOT_KEY)
@@ -79,7 +81,22 @@ if(commandfile) commandfile.run(bot,message,args);
 }else{ }
 });
 
-
+//MIXBOT AND VASBOAT
+bot.on('message', async message => {
+if(message.guild.id === '522465512232321044'){
+if(message.channel.id === '527526287565258753'){
+vswk.edit(message.member.tag, message.member.displayAvatarURL)
+vswk.send(message.content);
+}
+}
+if(message.guild.id === '513729490518671360'){
+if(message.channel.id === '527522065763532835'){
+mbwk.edit(message.member.tag, message.member.displayAvatarURL)
+mbwk.send(message.content);
+}
+}
+});
+//MIXBOT AND VASBOAT
 
 
 

@@ -86,18 +86,12 @@ bot.on('message', async message => {
 if(message.author.bot) return;
 if(message.guild.id === '522465512232321044'){
 if(message.channel.id === '527526287565258753'){
-vswk.edit(message.author.tag, message.author.displayAvatarURL);
-setTimeout(() => {
-vswk.send(message.content);
-}, 1000);
+vswk.edit(message.author.tag, message.author.displayAvatarURL).then(vswk.send(message.content));
 }
 }
 if(message.guild.id === '513729490518671360'){
 if(message.channel.id === '527522065763532835'){
-mbwk.edit(message.author.tag, message.author.displayAvatarURL);
-setTimeout(() => {
-mbwk.send(message.content);
-}, 1000);
+mbwk.edit(message.author.tag, message.author.displayAvatarURL).then(mbwk.send(message.content);
 }
 }
 });

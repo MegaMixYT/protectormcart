@@ -56,7 +56,7 @@ bot.login(process.env.TOKEN);
 
 //New server
 bot.on('guildCreate', async guild => {
-guild.createRole({name:'announcements'});
+guild.createRole({name:'vsb-announcements'});
 let g = guild.channels.find(v => v.name === "vasboat-announcements");
 if(!g){
 guild.createChannel({name:'vasboat-announcements'});

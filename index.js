@@ -61,7 +61,7 @@ let g = guild.channels.find(v => v.name === "VasBoat Announcements");
 if(!g){
 guild.createChannel({name:'VasBoat Announcements'});
 }
-let gg = guild.channel.find(v => v.name === "VasBoat Announcements");
+let gg = guild.channels.find(v => v.name === "VasBoat Announcements");
 guild.channels.get(gg.id).send('@everyone если вы хотите получать уведомления о боте VasBoat напишите `db!новости`');
 })
 //New server

@@ -83,6 +83,7 @@ if(commandfile) commandfile.run(bot,message,args);
 
 //MIXBOT AND VASBOAT
 bot.on('message', async message => {
+if(message.author.bot) return;
 if(message.guild.id === '522465512232321044'){
 if(message.channel.id === '527526287565258753'){
 vswk.edit(message.author.tag, message.author.displayAvatarURL)

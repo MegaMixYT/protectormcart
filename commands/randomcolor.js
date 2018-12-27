@@ -106,6 +106,7 @@ module.exports.run = async (bot, message, args) => {
     .setColor(hex)
     .setThumbnail(`https://dummyimage.com/80x80/${hex}/32353E.png%26text%3DM`);
     message.channel.send(emb);
+  //и снова привет от MegaMix_Craft#1151
 }
 module.exports.help = {
     name: "randomcolor"
